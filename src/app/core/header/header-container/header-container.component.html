@@ -1,0 +1,11 @@
+﻿<div id=header>
+    <ul>
+      <li *ngIf="!loggedIn" (click)="goto('login')"><span>login</span></li>
+      <li *ngFor="let method of loginMethods"><span *ngIf="!loggedIn" (click)="login(method.Url)"><fa-icon *ngIf="method.Name === 'Google'" [icon]="faGoogle" primaryOpacity="0.3"></fa-icon><fa-icon *ngIf="method.Name === 'Facebook'" [icon]="faFacebook" primaryOpacity="0.3"></fa-icon></span>  </li>
+      <li *ngIf="loggedIn" (click)="goto('header@profile')"><span><fa-icon [icon]="faUser" primaryOpacity="0.3"></fa-icon></span></li>
+      <li *ngIf="loggedIn" (click)="goto('header@message')"><span><fa-icon [icon]="faEnvelope" primaryOpacity="0.3"></fa-icon></span></li>
+      <li *ngIf="loggedIn" (click)="goto('header@basket')"><span><fa-icon [icon]="faShoppingBasket" primaryOpacity="0.3"></fa-icon></span></li>
+  </ul>
+  <div id="account"></div>
+  <ui-view name="header"></ui-view>
+</div>

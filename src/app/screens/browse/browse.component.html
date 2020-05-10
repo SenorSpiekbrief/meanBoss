@@ -1,0 +1,41 @@
+﻿<div id="browse" >
+
+   <div class="tableHeader"> 
+     <ul>
+       <li *ngIf="tableActive" (click)="openTable(true)"><span><fa-icon [icon]="faFilter" primaryOpacity="0.3"></fa-icon></span></li>
+       <li  *ngIf="tileActive" (click)="openTable()"><span><fa-icon [icon]="faTable" primaryOpacity="0.3"></fa-icon></span></li>
+       <li  *ngIf="!tileActive" (click)="openTile()"><span><fa-icon [icon]="faBorderAll" primaryOpacity="0.3"></fa-icon></span></li>
+       <li *ngIf="!searchActive" (click)="openSearch()"><span><fa-icon [icon]="faSearch" primaryOpacity="0.3"></fa-icon></span></li>
+     </ul>
+    <span><input type="text" id="searchInput" *ngIf="searchActive" (keyup)="handleKey($event)"/></span>
+   </div>
+  <table *ngIf="tableActive">
+    <thead id="headers">
+      <tr>
+        <th *ngFor="let fieldName of getFieldNames()">{{fieldName}}</th>
+      </tr>
+    </thead>
+    <thead id="filters" *ngIf="filterActive" >
+        <th *ngFor="let fieldName of getFieldNames()">
+          <span style="display:block" *ngFor="let option of getOptions(fieldName)" (click)="toggleOption(option,fieldName)" [ngClass]="{'active':option.active}">{{option.name}}</span>
+        </th>
+    </thead>
+    <tbody *ngFor="let item of getDisplayItems()">
+      <tr>
+        <td *ngFor="let field of getFieldNames()">
+          <span *ngIf="isArray(item[field])"><span style="display:block" *ngFor="let subItem of item[field]">{{subItem}}</span></span>
+          <span *ngIf="!isArray(item[field])">{{item[field]}}</span>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot></tfoot>
+    <tr></tr>
+  </table>
+  <div *ngIf="tileActive">
+    <div class="tile" *ngFor="let item of getDisplayItems()">
+      <img src="item.thumb" />
+      <span>{{item.title}}</span>
+      <span>{{item.desc}}</span>
+    </div>
+  </div>
+  </div>

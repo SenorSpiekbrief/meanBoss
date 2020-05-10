@@ -1,0 +1,22 @@
+﻿#menu {
+}
+ul {
+  margin:0;
+  padding:0;
+  list-style-type: none;
+  display:inline;
+  float:left;
+}
+li {
+  width: 60px;
+  display:block;
+  height:60px;
+  line-height: 70px;
+  margin:10px 0 10px 0;
+  background-color: #D4EEFF;
+  text-align:center;
+  cursor:pointer;
+  }
+span {
+  text-align: center;
+}

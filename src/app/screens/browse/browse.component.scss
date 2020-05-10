@@ -1,0 +1,32 @@
+﻿#browse {
+  position:relative;
+  left:20px;
+}
+
+td, td span {
+  max-width:100px;
+  overflow:auto;
+}
+span.active {
+  background-color:#777;
+}
+.tableHeader ul {
+  margin:0;
+  padding:0;
+  list-style-type: none;
+  display:inline;
+  float:left;
+}
+.tableHeader li {
+  width: 25px;
+  display:inline-block;
+  height:25px;
+  line-height: 25px;
+  margin:4px;
+  background-color: #D4EEFF;
+  text-align:center;
+  cursor:pointer;
+  }
+.tableHeader span {
+  text-align: center;
+}

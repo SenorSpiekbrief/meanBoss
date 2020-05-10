@@ -1,0 +1,9 @@
+﻿<div  #browseContainer > 
+  <ul>
+    <li *ngFor="let item of itemList" >
+      <div uiSref="item.detailId"></div>
+      <img src="{{item.image.thumb}}" />
+      <span>{{item.title}}</span>
+    </li>
+  </ul>
+</div>
